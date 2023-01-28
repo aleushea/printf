@@ -1,5 +1,7 @@
 #include "main.h"
 
+int get_Rebecca(const char *format, int *i, va_list list);
+
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
@@ -7,10 +9,11 @@ void print_buffer(char buffer[], int *buff_ind);
  * @format: format.
  * Return: Printed chars.
  */
+
 int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0;
-	int flags, width, Rebecca, size, buff_ind = 0;
+	int flags, width, size, Rebecca, buff_ind = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -38,7 +41,7 @@ int _printf(const char *format, ...)
 			size = get_size(format, &i);
 			++i;
 			printed = handle_print(format, &i, list, buffer,
-				flags, width, Rebecca, size);
+			flags, width, Rebecca, size);
 			if (printed == -1)
 				return (-1);
 			printed_chars += printed;
